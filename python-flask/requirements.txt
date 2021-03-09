@@ -1,10 +1,9 @@
 flask
-numpy
 pandas
+numpy
+scipy
 seaborn
-scikit-learn
-matplotlib
 sklearn
-gunicorn
-requests
+matplotlib
 flask-cors
+requests
