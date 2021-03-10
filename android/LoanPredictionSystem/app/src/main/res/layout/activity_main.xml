@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiogender"
+            android:orientation="vertical"
+            android:layout_marginLeft="100sp">
+
+            <RadioButton
+                android:id="@+id/radiomale"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:layout_marginTop="10dp"
+                android:checked="false"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radiofemale"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:layout_marginTop="20dp"
+                android:checked="false"
+                android:textSize="20sp" />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Married:"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radiomarried"
+                android:orientation="vertical"
+                android:layout_marginLeft="100sp">
+
+                <RadioButton
+                    android:id="@+id/radioyes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:layout_marginTop="10dp"
+                    android:checked="false"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/radiono"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginTop="20dp"
+                    android:checked="false"
+                    android:textSize="20sp" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Education:"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioeducation"
+                android:orientation="vertical"
+                android:layout_marginLeft="100sp">
+
+                <RadioButton
+                    android:id="@+id/radiograduate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Graduate"
+                    android:layout_marginTop="10dp"
+                    android:checked="false"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/radionongraduate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Non-Graduate"
+                    android:layout_marginTop="20dp"
+                    android:checked="false"
+                    android:textSize="20sp" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Self-Employed:"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioselfemployed"
+                android:orientation="vertical"
+                android:layout_marginLeft="100sp">
+
+                <RadioButton
+                    android:id="@+id/radioselfyes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:layout_marginTop="10dp"
+                    android:checked="false"
+                    android:textSize="25sp" />
+
+                <RadioButton
+                    android:id="@+id/radioselfno"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginTop="20dp"
+                    android:checked="false"
+                    android:textSize="25sp" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Applicant-Income:"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editapplincome"
+                android:hint="Enter value:"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loan-Amount-Term:"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editloanamount"
+                android:hint="Enter value:"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Credit-History:"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editcredithistory"
+                android:hint="Enter value:"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:onClick="submitndvalidate"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

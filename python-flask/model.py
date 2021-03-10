@@ -6,7 +6,7 @@ import seaborn as sns
 from scipy import stats
 from sklearn.ensemble import RandomForestClassifier
 import pickle
-df=pd.read_csv('E:\\train.csv')
+df=pd.read_csv('train.csv')
 del df['LoanAmount']
 categorical=['Gender','Married','Dependents','Education','Self_Employed','Property_Area','Loan_Status']
 numerical=['ApplicantIncome','CoapplicantIncome','Loan_Amount_Term','Credit_History']
