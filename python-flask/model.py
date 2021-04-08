@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler  
@@ -6,6 +5,7 @@ import seaborn as sns
 from scipy import stats
 from sklearn.ensemble import RandomForestClassifier
 import pickle
+
 df=pd.read_csv('train.csv')
 del df['LoanAmount']
 categorical=['Gender','Married','Dependents','Education','Self_Employed','Property_Area','Loan_Status']

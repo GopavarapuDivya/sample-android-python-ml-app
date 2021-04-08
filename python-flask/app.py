@@ -1,12 +1,18 @@
 import pandas as pd
-from flask import Flask,request,jsonify
 from sklearn.preprocessing import StandardScaler  
 import pickle
-import requests,ssl
 from flask_cors import CORS
+from flask import Flask,request,render_template
 app=Flask(__name__)
 CORS(app)
 model = pickle.load(open('model.pkl', 'rb'))
+@app.route('/')
+def index():
+    return render_template('index.html')
+@app.route('/form')
+def form():
+    return render_template('form.html')
+
 @app.route('/predict',methods=['POST'])
 def predict():
     gender=request.json['Gender']
@@ -25,7 +31,7 @@ def predict():
     
     datavalues=[[gender,married,education,self_employed,applicantincome,loanamountterm,credithistory]]
     
-    data=pd.dataframe(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])
+    data=pd.DataFrame(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])
     
     categorical_mod=['Gender','Married','Education','Self_Employed']
 
@@ -36,8 +42,14 @@ def predict():
         
     data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']] = StandardScaler().fit_transform(data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']])
     res=model.predict(data)
-    return str(res[0])
+    output=str(res[0])
 
+    if output==0:
+        res_str="Eligible for loan"
+    else:
+        res_str="Not Eligible for Loan"
+        
+    return res_str
 if __name__=="__main__":
     app.run(debug=True)
     

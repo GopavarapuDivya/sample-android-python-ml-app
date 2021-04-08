@@ -1,9 +1,8 @@
 flask
 pandas
-numpy
 scipy
 seaborn
-sklearn
+sklearn==0.23.1
 matplotlib
 flask-cors
 requests
