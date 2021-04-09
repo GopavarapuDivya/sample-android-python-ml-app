@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler  
+from sklearn.preprocessing import StandardScaler 
+from sklearn.preprocessing import LabelEncoder 
 import seaborn as sns
 from scipy import stats
 from sklearn.ensemble import RandomForestClassifier
@@ -23,7 +24,6 @@ for i in missing:
     df[i]=df[i].fillna(df[i].dropna().mode()[0])
 categorical_mod=['Gender','Married','Education','Self_Employed','Loan_Status']
 
-from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
 for i in categorical_mod:
     df[i] = le.fit_transform(df[i])

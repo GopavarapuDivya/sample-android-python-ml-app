@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler  
+from sklearn.preprocessing import LabelEncoder
 import pickle
 from flask_cors import CORS
 from flask import Flask,request,render_template
@@ -35,7 +36,6 @@ def predict():
     
     categorical_mod=['Gender','Married','Education','Self_Employed']
 
-    from sklearn.preprocessing import LabelEncoder
     le=LabelEncoder()
     for i in categorical_mod:
         data[i] = le.fit_transform(data[i])
