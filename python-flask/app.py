@@ -44,7 +44,7 @@ def predict():
         self_employed_int = 1
     else:
         self_employed_int = 0
-    print(request.json.values())
+    #print(request.json.values())
     applicantincome = request.json['CoapplicantIncome']
     
     loanamountterm = request.json['Loan_Amount_Term']
@@ -53,13 +53,10 @@ def predict():
     
     datavalues = [[gender_int,married_int,education_int,self_employed_int,applicantincome,loanamountterm,credithistory]]
     
-    data = pd.DataFrame(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])
-    print(data)    
-#    data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']] = StandardScaler().fit_transform(data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']])    
+    data = pd.DataFrame(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])   
+#   data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']] = StandardScaler().fit_transform(data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']])    
     res = model.predict(data)
     output = str(res[0])
-    
-    print(output)
 
     if output == "1":
         res_str = "Eligible for loan"
