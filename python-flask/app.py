@@ -17,40 +17,56 @@ def form():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    gender=request.json['Gender']
+    gender = request.json['Gender']
     
-    married=request.json['Married']
-    
-    education=request.json['Education']
-    
-    self_employed=request.json['Self_Employed']
-    
-    applicantincome=float(request.json['CoapplicantIncome'])
-    
-    loanamountterm=float(request.json['Loan_Amount_Term'])
-    
-    credithistory=float(request.json['Credit_History'])
-    
-    datavalues=[[gender,married,education,self_employed,applicantincome,loanamountterm,credithistory]]
-    
-    data=pd.DataFrame(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])
-    
-    categorical_mod=['Gender','Married','Education','Self_Employed']
-
-    le=LabelEncoder()
-    for i in categorical_mod:
-        data[i] = le.fit_transform(data[i])
-        
-    data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']] = StandardScaler().fit_transform(data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']])
-    res=model.predict(data)
-    output=str(res[0])
-
-    if output==0:
-        res_str="Eligible for loan"
+    if gender == 'Male':
+        gender_int=1
     else:
-        res_str="Not Eligible for Loan"
-        
+        gender_int=0
+    
+    married = request.json['Married']
+    
+    if married == 'Yes':
+        married_int = 1
+    else:
+        married_int = 0
+    
+    education = request.json['Education']
+    
+    if education == 'Graduate':
+        education_int = 1
+    else:
+        education_int = 0
+    
+    self_employed = request.json['Self_Employed']
+    
+    if self_employed == 'Yes':
+        self_employed_int = 1
+    else:
+        self_employed_int = 0
+    print(request.json.values())
+    applicantincome = request.json['CoapplicantIncome']
+    
+    loanamountterm = request.json['Loan_Amount_Term']
+    
+    credithistory = request.json['Credit_History']
+    
+    datavalues = [[gender_int,married_int,education_int,self_employed_int,applicantincome,loanamountterm,credithistory]]
+    
+    data = pd.DataFrame(datavalues,columns=['Gender','Married','Education','Self_Employed','CoapplicantIncome','Loan_Amount_Term','Credit_History'])
+    print(data)    
+#    data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']] = StandardScaler().fit_transform(data[['CoapplicantIncome','Loan_Amount_Term','Credit_History']])    
+    res = model.predict(data)
+    output = str(res[0])
+    
+    print(output)
+
+    if output == "1":
+        res_str = "Eligible for loan"
+    else:
+        res_str = "Not Eligible for Loan"        
     return res_str
+
 if __name__=="__main__":
     app.run(debug=True)
     
