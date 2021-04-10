@@ -209,6 +209,12 @@
             android:text="SUBMIT"
             android:onClick="submitndvalidate"
             android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/response"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
     </LinearLayout>
     </LinearLayout>
 

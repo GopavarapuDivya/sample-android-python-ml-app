@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     RadioGroup Gender,Married,Education,SelfEmployed;
     EditText ApplicantIncome,LoanAmountTerm,CreditHistory;
     String ApplicantIncomestr,LoanAmountTermstr,CreditHistorystr,gender,married,education,selfemployed;
+    TextView res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity
         LoanAmountTerm=findViewById(R.id.editloanamount);
         CreditHistory=findViewById(R.id.editcredithistory);
 
+        res= findViewById(R.id.response);
         ApplicantIncome.setFilters(new InputFilter[]{new MinMaxFilter(this,0.0,41667.0)});
         LoanAmountTerm.setFilters(new InputFilter[]{new MinMaxFilter(this,12.0,480.0)});
         CreditHistory.setFilters(new InputFilter[]{new MinMaxFilter(this,0.0,1.0)});
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity
             education=Educationradiobtn.getText().toString();
         }
         if(SelfEmployedId==-1){
-            Toast.makeText(this, "Nothing selected,please choose any of the above in Gender", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Nothing selected,please choose any of the above in Self Employed", Toast.LENGTH_SHORT).show();
         }
         else{
             selfemployed=SelfEmployedradiobtn.getText().toString();
@@ -104,6 +107,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.i("On Response", "onResponse: " + response.toString());
+                    res.setText(response.toString());
                 }
             }, new Response.ErrorListener() {
                 @Override
